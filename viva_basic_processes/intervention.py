@@ -27,7 +27,7 @@ Modes (config ``mode``):
 ``window: [t0, t1]`` (optional) restricts the intervention to ``t0 <= t < t1``.
 By default ``t`` is the process's own elapsed time (accumulated across
 ``update`` calls). Set ``use_global_time: true`` and wire the ``global_time``
-input to a :class:`pbg_basic_processes.clock.Clock` to gate on *absolute*
+input to a :class:`viva_basic_processes.clock.Clock` to gate on *absolute*
 simulation time instead. Omitted/empty window ⇒ always active.
 
 Pure process-bigraph; no AI. Auto-registers into any workspace ``core`` via
