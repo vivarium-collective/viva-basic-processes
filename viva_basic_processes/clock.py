@@ -3,7 +3,7 @@
 process-bigraph's engine already maintains ``global_time`` (absolute simulation
 time, a float) as a reserved store in *every* composite: wire any process input
 to ``['global_time']`` to read it — no Clock required (see
-:class:`pbg_basic_processes.intervention.Intervention`'s ``use_global_time``).
+:class:`viva_basic_processes.intervention.Intervention`'s ``use_global_time``).
 
 What the engine does **not** track as a wireable store is a discrete *step
 count*. That is ``Clock``'s job: it takes no inputs and emits ``tick`` (int),
