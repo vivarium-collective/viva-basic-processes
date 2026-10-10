@@ -12,6 +12,7 @@ import shim still ships for back-compat.)
 """
 
 from viva_basic_processes.clock import Clock, register_clock, clock_node
+from viva_basic_processes.tick import Tick, register_tick, tick_node
 from viva_basic_processes.intervention import (
     Intervention,
     register_intervention,
@@ -23,12 +24,23 @@ try:
 except ImportError:  # pragma: no cover - sympy is a base dep, but stay defensive
     pass
 
+# Plotting helpers (plot_timeseries / plot_single_eval) live in
+# viva_basic_processes.plotting and require the optional ``[plotting]`` extra
+# (matplotlib). Import them here for convenience, but stay importable without
+# matplotlib installed — the helpers raise a clear error only when called.
+from viva_basic_processes.plotting import plot_timeseries, plot_single_eval
+
 __all__ = [
     "Clock",
     "register_clock",
     "clock_node",
+    "Tick",
+    "register_tick",
+    "tick_node",
     "Intervention",
     "register_intervention",
     "intervention_node",
     "MathExpressionStep",
+    "plot_timeseries",
+    "plot_single_eval",
 ]
