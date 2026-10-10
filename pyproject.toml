@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pbg-basic-processes"
+name = "viva-basic-processes"
 version = "0.3.0"
 description = "Reusable, composite-agnostic process-bigraph processes — Clock, Tick, Intervention, MathExpression, and beyond (was pbg-basic-processes)"
 readme = "README.md"
