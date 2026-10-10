@@ -5,6 +5,7 @@ Reusable, composite-agnostic [process-bigraph](https://github.com/vivarium-colle
 | Process | What it does |
 |---|---|
 | `Clock` | Emits an integer `tick` step counter each step — the one temporal quantity the engine does *not* expose as a store. (Absolute simulation time, `global_time`, is already maintained by the engine in every composite; wire any input to `['global_time']` to read it.) |
+| `Tick` | Accumulates continuous simulation time into a float `t` store (`t -> t + interval` each update) — a wireable time signal for processes/steps that are functions of `t` (e.g. a time-driven `MathExpressionStep`). |
 | `Intervention` | Applies a specific perturbation to one target store — `set` / `knockout` / `scale` / `add` / `decouple` / `invert`, optionally within a time window. The building block for negative controls and counterfactuals. |
 | `MathExpressionStep` | Evaluates a list of named symbolic (SymPy) expressions as one Step, inferring input ports from free symbols and resolving inter-expression dependencies in topological order. |
 
@@ -21,7 +22,19 @@ assert 'Intervention' in core.link_registry
 assert 'MathExpressionStep' in core.link_registry
 ```
 
-Add `pbg-basic-processes` as a dependency of your workspace (it is a base dependency of `pbg-superpowers`, so every pbg workspace gets it) and reference the processes by `local:Clock`, `local:Intervention`, `local:MathExpressionStep`.
+Add `pbg-basic-processes` as a dependency of your workspace (it is a base dependency of `pbg-superpowers`, so every pbg workspace gets it) and reference the processes by `local:Clock`, `local:Tick`, `local:Intervention`, `local:MathExpressionStep`.
+
+## Plotting helpers (optional)
+
+`viva_basic_processes.plotting` provides two notebook/tutorial convenience helpers — `plot_timeseries` (line plots of emitted records over a time column) and `plot_single_eval` (a bar chart of one step's inputs/outputs). They require matplotlib, which is an **optional** extra so the core processes stay lightweight:
+
+```bash
+pip install "viva-basic-processes[plotting]"
+```
+
+```python
+from viva_basic_processes import plot_timeseries, plot_single_eval
+```
 
 ## Install
 

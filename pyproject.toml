@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "viva-basic-processes"
-version = "0.2.0"
-description = "Reusable, composite-agnostic process-bigraph processes — Clock, Intervention, MathExpression, and beyond (was pbg-basic-processes)"
+version = "0.3.0"
+description = "Reusable, composite-agnostic process-bigraph processes — Clock, Tick, Intervention, MathExpression, and beyond (was pbg-basic-processes)"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.11"
@@ -17,7 +17,8 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+plotting = ["matplotlib"]
+dev = ["pytest", "matplotlib"]
 
 # Ship the real package (viva_basic_processes) plus the pbg_basic_processes
 # import shim (a meta-path redirect to viva_basic_processes) for back-compat.
