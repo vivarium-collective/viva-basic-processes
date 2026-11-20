@@ -18,6 +18,7 @@ from viva_basic_processes.intervention import (
     register_intervention,
     intervention_node,
 )
+from viva_basic_processes.time_series import TimeSeriesStep
 
 try:
     from viva_basic_processes.math_expression import MathExpressionStep
@@ -41,6 +42,7 @@ __all__ = [
     "register_intervention",
     "intervention_node",
     "MathExpressionStep",
+    "TimeSeriesStep",
     "plot_timeseries",
     "plot_single_eval",
 ]
