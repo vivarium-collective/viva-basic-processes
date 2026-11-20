@@ -8,6 +8,7 @@ Reusable, composite-agnostic [process-bigraph](https://github.com/vivarium-colle
 | `Tick` | Accumulates continuous simulation time into a float `t` store (`t -> t + interval` each update) — a wireable time signal for processes/steps that are functions of `t` (e.g. a time-driven `MathExpressionStep`). |
 | `Intervention` | Applies a specific perturbation to one target store — `set` / `knockout` / `scale` / `add` / `decouple` / `invert`, optionally within a time window. The building block for negative controls and counterfactuals. |
 | `MathExpressionStep` | Evaluates a list of named symbolic (SymPy) expressions as one Step, inferring input ports from free symbols and resolving inter-expression dependencies in topological order. |
+| `TimeSeriesStep` | Holds one or more named series sampled at the same increasing `times` and, given an input `time`, writes each one's value at the latest sample at or before it (a zero-order hold, within a small `tolerance`). Drives a model with a signal computed elsewhere, exactly at its sampled instants. |
 
 ## Auto-registration
 
